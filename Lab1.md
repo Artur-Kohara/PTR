@@ -19,7 +19,7 @@
 
 ### Topologia no PNETLab
 
-![Topologia da rede](./imagens/topologia_lab1.png)
+![Topologia da rede](./imagens/Lab1/topologia_lab1.png)
 
 ---
 
@@ -53,17 +53,17 @@ Ou seja, o objetivo é estruturar uma conectividade sem roteamento (gateway).
 
 - Configuração no Host A
 
-  ![Configuração do Host A](./imagens/config_hostA.png)
+  ![Configuração do Host A](./imagens/Lab1/config_hostA.png)
 
 - Configuração no Host B
 
-  ![Configuração do Host B](./imagens/config_hostB.png)
+  ![Configuração do Host B](./imagens/Lab1/config_hostB.png)
 
 ---
 
 ### Configuração do roteador
 
-![Roteador](./imagens/config_router.png)
+![Roteador](./imagens/Lab1/config_router.png)
 
 ---
 
@@ -71,11 +71,11 @@ Ou seja, o objetivo é estruturar uma conectividade sem roteamento (gateway).
 
 - Host A
 
-  ![Teste Host A](./imagens/teste_hostA.png)
+  ![Teste Host A](./imagens/Lab1/teste_hostA.png)
 
 - Host B
 
-  ![Teste Host B](./imagens/tetste_hostB.png)
+  ![Teste Host B](./imagens/Lab1/tetste_hostB.png)
 
 ---
 
@@ -111,11 +111,11 @@ A topologia e os endereçamentos são os mesmos da primeira parte.
 
 - Host A
 
-  ![Configuração de gateway Host A](./imagens/config_gateway_hostA.png)
+  ![Configuração de gateway Host A](./imagens/Lab1/config_gateway_hostA.png)
 
 - Host B
 
-  ![Configuração de gateway Host B](./imagens/config_gateway_hostB.png)
+  ![Configuração de gateway Host B](./imagens/Lab1/config_gateway_hostB.png)
 
 ---
 
@@ -123,11 +123,11 @@ A topologia e os endereçamentos são os mesmos da primeira parte.
 
 - Host A
 
-  ![Teste 2 Host A](./imagens/teste2_hostA.png)
+  ![Teste 2 Host A](./imagens/Lab1/teste2_hostA.png)
 
 - Host B
 
-  ![Teste 2 Host B](./imagens/teste2_hostB.png)
+  ![Teste 2 Host B](./imagens/Lab1/teste2_hostB.png)
 
 ---
 
@@ -135,11 +135,11 @@ A topologia e os endereçamentos são os mesmos da primeira parte.
 
 - Host A
 
-  ![Tabela Host A](./imagens/tabela_hostA.png)
+  ![Tabela Host A](./imagens/Lab1/tabela_hostA.png)
 
 - Host B
 
-  ![Tabela Host B](./imagens/tabela_hostB.png)
+  ![Tabela Host B](./imagens/Lab1/tabela_hostB.png)
 
 Observa-se agora que cada dispositivo da rede (hosts e roteador) possui uma tabela de roteamento própria. Dessa forma, quando os hosts precisam enviar um pacote para fora de sua rede local, eles encaminham para o roteador.
 
