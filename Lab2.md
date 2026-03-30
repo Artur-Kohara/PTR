@@ -11,7 +11,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 - Nome: **Artur Kohara Guerra**
 - Matrícula: **231025181**
-- Turma:
+- Turma: **01**
 
 ## Objetivos
 
@@ -91,9 +91,30 @@ no shutdown
 exit
 ```
 
+### Configuração dos Hosts VPCS
+
+- PC 1
+  ```bash
+  ip 192.168.0.10/24 192.168.0.254
+  save
+  ```
+- PC 2
+  ```bash
+  ip 192.168.0.20/24 192.168.0.254
+  save
+  ```
+
 ## Resultados e evidências
 
-(incluir prints e tabelas em \`relatorio/figuras/\`)
+### Verificando as configurações do roteador
+
+- 1
+
+  ```bash
+  show ip interface brief
+  ```
+
+  ![ip interface](./imagens/Lab2/ip_interface.png)
 
 ## Análise técnica
 
