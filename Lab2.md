@@ -128,19 +128,13 @@ Nesta parte foi configurado o ip e o gateway de cada host.
 
   ![config 1](./imagens/Lab2/config1.png)
 
-  Na imagem acima é possível verificar a configuração do hostname aplicada e a senha criptografada para aumentar segurança.
-
   ![config 2](./imagens/Lab2/config2.png)
-
-  Nessa imagem é possível ver as configurações de domínio, usuário admin e SSH.
 
   ![config 3](./imagens/Lab2/config3.png)
 
-  Nessa imagem é possível verificar a configuração de interface LAN.
-
   ![config 4](./imagens/Lab2/config4.png)
 
-  Nessa última imagem é possível verificar as configurações de console e vty feitas.
+  Nas imagens acima, é possível verificar as configurações de hostname, senha criptografada para acesso ao roteador, configurações de domínio, usuário admin, SSH, interface LAN, configurações de console e vty, respectivamente, que foram feitas no início do laboratório.
 
 - Verificando os usuários:
 
@@ -166,11 +160,13 @@ Nesta parte foi configurado o ip e o gateway de cada host.
 ### Testes de comunicação nos hosts
 
 - No PC1:
+
   ![teste PC1](./imagens/Lab2/teste_PC1.png)
 
   Testa comunicação com o gateway (roteador) e com PC2.
 
 - No PC2:
+
   ![teste PC2](./imagens/Lab2/teste_PC2.png)
 
   Testa comunicação com o gateway (roteador) e com PC1.
