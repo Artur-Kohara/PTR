@@ -5,7 +5,7 @@ Departamento: **Engenharia Elétrica**
 
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
-# Relatório do Laboratório 2
+# Relatório do Laboratório 6
 
 ## Identificação
 
@@ -15,7 +15,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ## Objetivos
 
-Este experimento visa simular a configuração do protocolo BGP no roteador de uma empresa para que ela possa anunciar seu prefixo público à Internet por meio de seus provedores. Dessa forma, os objetivos do experimeto são:
+Este laboratório visa simular a configuração do protocolo BGP no roteador de uma empresa para que ela possa anunciar seu prefixo público à Internet por meio de seus provedores. Dessa forma, os objetivos do experimeto são:
 
 - compreender o papel do **BGP** no roteamento entre sistemas autônomos;
 - identificar vizinhanças **eBGP**;
@@ -64,31 +64,31 @@ R1(config)# interface loopback 1
 
 R1(config-if)# ip address 11.11.11.11 255.255.255.255
 
-R1(config-if)# no shut
+R1(config-if)# no shutdown
 
 R1(config-if)# interface e0/0
 
 R1(config-if)# ip address 192.168.0.1 255.255.255.0
 
-R1(config-if)# no shut
+R1(config-if)# no shutdown
 
 R1(config-if)# interface e0/1
 
 R1(config-if)# ip address 10.1.0.1 255.255.255.252
 
-R1(config-if)# no shut
+R1(config-if)# no shutdown
 
 R1(config-if)# interface e0/2
 
 R1(config-if)# ip address 10.1.0.5 255.255.255.252
 
-R1(config-if)# no shut
+R1(config-if)# no shutdown
 
 R1(config-if)# interface e0/3
 
 R1(config-if)# ip address 10.2.0.1 255.255.255.252
 
-R1(config-if)# no shut
+R1(config-if)# no shutdown
 
 R1(config-if)# end
 ```
