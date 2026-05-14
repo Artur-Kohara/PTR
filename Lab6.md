@@ -13,6 +13,8 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 - Matrícula: **231025181**
 - Turma: **01**
 
+---
+
 ## Objetivos
 
 Este laboratório visa simular a configuração do protocolo BGP no roteador de uma empresa para que ela possa anunciar seu prefixo público à Internet por meio de seus provedores. Dessa forma, os objetivos do experimeto são:
@@ -23,6 +25,8 @@ Este laboratório visa simular a configuração do protocolo BGP no roteador de 
 - anunciar um prefixo público usando o comando `network`;
 - entender o uso de **loopback**, `update-source` e `ebgp-multihop`;
 - verificar a tabela de rotas e a tabela BGP.
+
+---
 
 ## Topologia do Laboratório
 
@@ -36,6 +40,8 @@ O cenário representa um pequeno trecho do núcleo operacional da Internet, com 
 - o **ISP3** pertence ao **AS 300**;
 - a senha das vizinhanças é **`SENHA`**.
 
+---
+
 ### Descrição do cenário
 
 A **empresa** pertence ao **AS 1000** e possui o bloco público **200.18.245.64/27**, que será anunciado para a Internet usando o protocolo **BGP**. Internamente, a empresa também possui a rede local **192.168.0.0/24**, conectada ao roteador **R1** por meio do **SW1**. No roteador da empresa, também é criada a interface de loopback **11.11.11.11/32**, que será usada como origem da sessão BGP com o **ISP1**.
@@ -48,10 +54,11 @@ O **ISP1** conecta-se ao **ISP3**, pertencente ao **AS 300**, pela rede **191.1.
 
 Dessa forma, o laboratório representa uma empresa anunciando seu prefixo público para dois provedores distintos, sendo um deles configurado com vizinhança via loopback e outro com vizinhança direta pela interface física.
 
+---
+
 ## Procedimentos
 
 ### Configuração básica das interfaces em R1
-
 
 ```bash
 R1> enable
@@ -93,8 +100,9 @@ R1(config-if)# no shutdown
 R1(config-if)# end
 ```
 
-### Configuração do BGP em R1
+---
 
+### Configuração do BGP em R1
 
 ```bash
 R1> enable
@@ -126,22 +134,28 @@ R1(config)# ip route 10.10.10.10 255.255.255.255 10.1.0.6
 R1(config)# ip route 200.18.245.64 255.255.255.224 Null0
 ```
 
+---
+
 ### Verificação
 
 - ```bash
     Router# show ip route
-    ```
-    ![Show ip route](./imagens/Lab6/show-ip-route.png)
+  ```
+
+  ![Show ip route](./imagens/Lab6/show-ip-route.png)
 
 - ```bash
     Router# show ip bgp
-    ```
-    ![Show ip bgp](./imagens/Lab6/show-ip-bgp.png)
+  ```
+
+  ![Show ip bgp](./imagens/Lab6/show-ip-bgp.png)
 
 - ```bash
     Router# show ip bgp summary
-    ```
-    ![Show ip bgp summary](./imagens/Lab6/show-ip-bgp-summary.png)
+  ```
+  ![Show ip bgp summary](./imagens/Lab6/show-ip-bgp-summary.png)
+
+---
 
 ## Questões para análise
 
@@ -150,11 +164,11 @@ R1(config)# ip route 200.18.245.64 255.255.255.224 Null0
   O protocolo BGP tem a função de realizar o roteamento entre diferentes ASs, permitindo que a empresa do AS 1000 anuncie seu prefixo público `200.18.245.64/27` para os provedores ISP1 e ISP2. Dessa forma, outras redes da Internet conseguem aprender o caminho até a rede da empresa. O BGP também permite a troca de informações de roteamento entre os provedores, possibilitando que as rotas sejam propagadas entre os diferentes ASs do cenário.
 
 - **2. Por que a sessão com o ISP1 usa endereço de loopback?**
-  
+
   A sessão com o ISP1 utiliza endereços de loopback para aumentar a estabilidade da conexão BGP. Interfaces de loopback são interfaces lógicas que permanecem ativas independentemente do estado físico de um enlace específico. Assim, mesmo que um dos links físicos entre R1 e ISP1 falhe, a sessão BGP pode continuar funcionando utilizando esse outro caminho disponível.
 
 - **3. Por que foi necessário configurar `ebgp-multihop 2`?**
-  
+
   O comando `ebgp-multihop 2` foi necessário pois a sessão eBGP foi estabelecida utilizando interfaces de loopback, que não estão diretamente conectadas fisicamente. Por padrão, o eBGP espera que o vizinho esteja a apenas um salto de distância (TTL = 1), mas, como os pacotes precisam atravessar pelo menos um roteador até alcançar a loopback remota, foi necessário aumentar o TTL permitido para dois saltos.
 
 - **4. Qual a função do `update-source Loopback1`?**
@@ -162,14 +176,16 @@ R1(config)# ip route 200.18.245.64 255.255.255.224 Null0
   O comando `update-source Loopback1` define que o endereço IP utilizado como origem da sessão BGP será o IP da interface Loopback1 (11.11.11.11) ao invés do endereço IP de uma interface física.
 
 - **5. Por que foi criada a rota `ip route 200.18.245.64 255.255.255.224 Null0`?**
-  
+
   Essa rota foi criada para inserir o prefixo `200.18.245.64/27` na tabela de roteamento do roteador. O BGP somente anuncia redes que já existem na tabela de rotas local, logo, como esse bloco representa um prefixo público anunciado e não uma rede diretamente conectada, foi necessário criar uma rota estática apontando para `Null0`. Além de permitir o anúncio da rota, essa prática também evita loops de roteamento para destinos inexistentes dentro desse prefixo.
 
 - **6. Qual a diferença entre o pareamento com o ISP1 e com o ISP2?**
-  
+
   O pareamento com o ISP1 foi realizado utilizando interfaces de loopback, exigindo configurações adicionais como `update-source`, `ebgp-multihop` e rotas estáticas para alcançar a loopback remota.
 
   Já o pareamento com o ISP2 foi feito diretamente entre interfaces físicas conectadas na rede `10.2.0.0/30`. Nesse caso, não foi necessário utilizar loopbacks nem configurar `ebgp-multihop`.
+
+---
 
 ## Conclusão
 
